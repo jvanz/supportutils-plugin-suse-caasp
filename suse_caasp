@@ -416,6 +416,7 @@ plugin_message "All data stored in $OF"
 
 if check_rpm salt-minion && [ -e /usr/bin/salt-minion ]; then
     rpm_verify $OF salt-minion
+    rpm_verify $OF kubernetes-salt
     log_cmd $OF 'salt-minion --versions-report'
     log_cmd $OF 'systemctl status --full salt-minion'
     log_cmd $OF 'journalctl -u salt-minion'
